@@ -1,4 +1,4 @@
-Important Notice
+Important Notice:
 
 The mod will not contain any music other than the main menu theme unless the CWE Music Addon Pack is downloaded. This is to save file space to avoid exceeding the Moddb upload size limit.
 
