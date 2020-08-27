@@ -224,31 +224,34 @@ political_reforms = {
 			middle_vote = 0
 			poor_vote = 0
 		}
-		registered_voting = { # weighted_voting
+		registered_voting = { # Harassment
 			rich_vote = 4
 			middle_vote = 3
 			poor_vote = 1
 			global_immigrant_attract = 0.1
+			ruling_party_support = 0.20
 			administrative_multiplier = 1
 		}
-		universal_weighted_voting = { # registered_voting 
+		universal_weighted_voting = { # Vote Rigging
 			rich_vote = 3
 			middle_vote = 2
 			poor_vote = 1
 			global_immigrant_attract = 0.2
-			administrative_multiplier = 2
 			global_pop_consciousness_modifier = 0.01
+			ruling_party_support = 0.10
+			administrative_multiplier = 2
 		}
-		promoted_voting = { # support_disenfranchised
+		promoted_voting = { # Gerrymandering
 			rich_vote = 2
-			middle_vote = 1
+			middle_vote = 1.5
 			poor_vote = 1
 			global_immigrant_attract = 0.4
-			administrative_multiplier = 3
 			global_pop_consciousness_modifier = 0.02
+			ruling_party_support = 0.05
+			administrative_multiplier = 3
 		}
 
-		universal_voting = { # universal_voting
+		universal_voting = { # Fair and Square
 			rich_vote = 1
 			middle_vote = 1
 			poor_vote = 1
@@ -261,39 +264,43 @@ political_reforms = {
 		next_step_only = yes
 		ruling_party_opinion = { # party_appointed
 			rules = { same_as_ruling_party = yes }
-			global_immigrant_attract = -0.5
+			ruling_party_support = 0.20
 			global_pop_consciousness_modifier = -0.02
-			issue_change_speed = -0.8		
+			issue_change_speed = -0.8
+			global_immigrant_attract = -0.25
 		}
 		regulated_opinion = { # appointed
-			rules = { rich_only = yes }		
+			rules = { rich_only = yes }	
+			ruling_party_support = 0.10
 			global_pop_consciousness_modifier = -0.01
-			issue_change_speed = -0.4
-			global_immigrant_attract = 0
+			issue_change_speed = -0.6
+			global_immigrant_attract = -0.125
 		}
 		open_opinion = { # state_equal_weight
 			rules = { state_vote = yes }
-			issue_change_speed = 0.4
-			global_immigrant_attract = 0.1
+			ruling_party_support = 0.05
+			
+			issue_change_speed = -0.3
+			
 			allow = { 
 				NOT = { vote_franschise = none_voting }
 			}
 		}
 		free_opinion = { # population_equal_weight
-			rules = { population_vote = yes }
-			global_pop_consciousness_modifier = 0.02
-			issue_change_speed = 0.8
-			global_immigrant_attract = 0.2			
+			rules = { state_vote = yes }
+			global_pop_consciousness_modifier = 0.01
+			issue_change_speed = -0.15
+			global_immigrant_attract = 0.15	
 			allow = {
 				NOT = { vote_franschise = none_voting }
 			}
 		}
 		democratic_opinion = { # appointed
 			rules = { population_vote = yes }
-			global_pop_consciousness_modifier = 0.03
-			issue_change_speed = 0.6
+			global_pop_consciousness_modifier = 0.02
+			
 			global_immigrant_attract = 0.3
-			global_pop_militancy_modifier = -0.01					
+			global_pop_militancy_modifier = -0.01			
 			allow = {
 				NOT = { vote_franschise = none_voting }
 			}
@@ -304,14 +311,14 @@ political_reforms = {
 		administrative = yes
 		next_step_only = yes
 		no_meetings = { 
-			ruling_party_support = 0.5
+			ruling_party_support = 0.25
 			issue_change_speed = -0.8
 			global_immigrant_attract = -0.2
 			administrative_multiplier = 6
 			global_pop_consciousness_modifier = -0.01
 		}
 		limited_meetings = {
-			ruling_party_support = 0.25
+			ruling_party_support = 0.125
 			global_immigrant_attract = 0.1
 			administrative_multiplier = 3 
 		}
@@ -328,7 +335,7 @@ political_reforms = {
 		next_step_only = yes
 		quality_of_service = { # no_meeting
 			issue_change_speed = -0.2
-			ruling_party_support = 1
+			ruling_party_support = 0.15
 			factory_maintenance = 0.2
 			education_efficiency_modifier = -0.1
 			administrative_efficiency_modifier = -0.1
@@ -338,13 +345,14 @@ political_reforms = {
 		}
 		open_unregulated = { # yes_meeting
 			tax_efficiency = 0.02
-			ruling_party_support = 0.5
+			ruling_party_support = 0.10
 			factory_maintenance = 0.1
 			administrative_multiplier = 2
 			global_pop_consciousness_modifier = -0.02
 		}
 		net_neutrality = { # 
 			tax_efficiency = 0.04
+			ruling_party_support = 0.05
 			education_efficiency_modifier = 0.1
 			administrative_efficiency_modifier = 0.1
 			tariff_efficiency_modifier = 0.1
@@ -367,13 +375,13 @@ political_reforms = {
 			cb_generation_speed_modifier = 0.2
 			issue_change_speed = -0.1
 			administrative_multiplier = 5
-			ruling_party_support = 1
+			ruling_party_support = 0.30
 			global_immigrant_attract = -0.1
 			global_pop_consciousness_modifier = -0.02
 		}
 		firewall_publishing = { # censored_press
 			literacy_con_impact = 0.5
-			ruling_party_support = 0.5
+			ruling_party_support = 0.20
 			administrative_multiplier = 3
 			cb_generation_speed_modifier = 0.1
 			global_pop_consciousness_modifier = -0.01
@@ -384,7 +392,6 @@ political_reforms = {
 			suppression_points_modifier = -0.25
 			issue_change_speed = 0.1
 			global_immigrant_attract = 0.5
-			
 		}
 		responsible_publishing = { 
 			literacy_con_impact = 0.5		
@@ -401,17 +408,20 @@ political_reforms = {
 		gender_role_based = { # no_trade_unions
 			factory_maintenance = -0.50
 			global_pop_consciousness_modifier = -0.02
+			ruling_party_support = 0.20
 		}
 		gender_equal = { # state_controlled
 			social_reform_desire = 0.1
 			global_immigrant_attract = 0.1
 			factory_maintenance = -0.25
 			global_pop_consciousness_modifier = -0.01
+			ruling_party_support = 0.10
 		}
 		gender_promotive = { # non_socialist
 			social_reform_desire = 0.2
 			factory_input = 0.125
 			global_immigrant_attract = 0.2
+			ruling_party_support = 0.05
 		}
 		feminist = { # all_trade_unions
 			social_reform_desire = 0.3
@@ -424,29 +434,29 @@ political_reforms = {
 	political_parties = {
 		next_step_only = yes
 		parties_not_allowed = { # underground_parties
-			ruling_party_support = 4
+			ruling_party_support = 1
 			global_pop_consciousness_modifier = -0.02
 			global_immigrant_attract = -0.3
 			allow = {
 				
 			}
 		}
-		parties_only_nominated = { # harassment
-			ruling_party_support = 2
+		parties_only_nominated = { # Dirty Campaigning
+			ruling_party_support = 0.40
 			global_pop_consciousness_modifier = -0.01
 			global_immigrant_attract = -0.2
 			allow = {
 				NOT = { vote_franschise = none_voting }
 			}
 		}
-		parties_restrict_non_democratic = { # vote_rigging
-			ruling_party_support = 1
+		parties_restrict_non_democratic = { # Limited Campaigning
+			ruling_party_support = 0.20
 			allow = {
 				NOT = { vote_franschise = none_voting }
 			}
 		}
 		parties_promote_democratic = { # gerrymandering
-			ruling_party_support = 0.5
+			ruling_party_support = 0.10
 			global_pop_consciousness_modifier = 0.01
 			global_immigrant_attract = 0.2
 			allow = {
@@ -610,26 +620,45 @@ social_reforms = {
 		administrative = yes
 		next_step_only = yes
 		unregulated_hours = { # no_minimum_wage
-			minimum_wage = 4
 		}
 		eight_work_hours = { # trinket_wage
-			minimum_wage = 6
+			minimum_wage = 1
+			
+			factory_throughput = -0.05
+			poor_luxury_needs = -0.05
+			middle_luxury_needs = -0.05
+			
 			global_immigrant_attract = 0.1
 			administrative_multiplier = 1
 		}
 		paid_vacation_hours = { # low_minimum_wage
-			minimum_wage = 10
+			minimum_wage = 2
+			
+			factory_throughput = -0.10
+			poor_luxury_needs = -0.10
+			middle_luxury_needs = -0.10
+			
 			global_immigrant_attract = 0.2
 			administrative_multiplier = 2
 		}
 		paid_sick_leave_hours = { # acceptable_minimum_wage
-			minimum_wage = 14
+			minimum_wage = 3
+			
+			factory_throughput = -0.15
+			poor_luxury_needs = -0.15
+			middle_luxury_needs = -0.15
+			
 			global_immigrant_attract = 0.3
 			global_pop_consciousness_modifier = -0.01
 			administrative_multiplier = 3
 		}
 		six_hours = { # good_minimum_wage
-			minimum_wage = 18
+			minimum_wage = 4
+			
+			factory_throughput = -0.20
+			poor_luxury_needs = -0.20
+			middle_luxury_needs = -0.20
+			
 			global_immigrant_attract = 0.4
 			global_pop_consciousness_modifier = -0.02
 			administrative_multiplier = 4
@@ -702,25 +731,25 @@ social_reforms = {
 	unemployment_subsidies = {
 		next_step_only = yes
 		no_subsidies = {
-			unemployment_benefit = 1
+			
 		}
 		minimal_subsidies = { # trinket_subsidies
-			unemployment_benefit = 2
+			unemployment_benefit = 1
 			global_immigrant_attract = 0.1
 			global_pop_consciousness_modifier = -0.01
 		}
 		ghent_system = { # low_subsidies
-			unemployment_benefit = 4
+			unemployment_benefit = 2
 			global_immigrant_attract = 0.2
 			global_pop_consciousness_modifier = -0.02
 		}
 		generous_subsidies = { # acceptable_subsidies
-			unemployment_benefit = 6
+			unemployment_benefit = 3
 			global_immigrant_attract = 0.3
 			global_pop_consciousness_modifier = -0.03
 		}
 		citizen_salary = { # good_subsidies
-			unemployment_benefit = 8
+			unemployment_benefit = 4
 			global_immigrant_attract = 0.4
 			global_pop_consciousness_modifier = -0.04
 		}
@@ -747,38 +776,38 @@ social_reforms = {
 			global_population_growth = 0.003
 			factory_throughput = -0.15
 			global_immigrant_attract = 0.3
-			tax_efficiency = -0.10
+			tax_efficiency = -0.08
 		}
 		state_provided_child_care = { # 
 			global_population_growth = 0.004
 			factory_throughput = -0.20
 			global_immigrant_attract = 0.4
-			tax_efficiency = -0.20
+			tax_efficiency = -0.10
 		}
 	}
 	pensions = {
 		next_step_only = yes
 		no_pensions = {
-			pension_level	= 1
+			
 		}
 		trinket_pensions = {
-			pension_level = 2
+			pension_level = 1
 			global_immigrant_attract = 0.1
 			global_population_growth = 0.001
 		}
 		low_pensions = {
-			pension_level	= 4
+			pension_level = 2
 			global_immigrant_attract = 0.2
 			global_population_growth = 0.001
 		}
 		acceptable_pensions = {
-			pension_level	= 6
+			pension_level = 3
 			global_pop_consciousness_modifier = -0.01
 			global_immigrant_attract = 0.3
 			global_population_growth = 0.002
 		}
 		good_pensions = {
-			pension_level	= 8
+			pension_level = 4
 			global_pop_consciousness_modifier = -0.02
 			global_immigrant_attract = 0.4
 			global_population_growth = 0.002
@@ -883,29 +912,29 @@ social_reforms = {
 		}
 		social_services = { # small_endowment
 			administrative_multiplier = 1
-			pension_level = 0.50
+			pension_level = 1
 			unemployment_benefit = 1
 			global_pop_consciousness_modifier = -0.02
 			global_pop_militancy_modifier = -0.02
 		}
 		social_abuse_protection = { # medium_endowment
 			administrative_multiplier = 2
-			pension_level = 1
+			pension_level = 2
 			unemployment_benefit = 2
 			global_pop_consciousness_modifier = -0.03
 			global_pop_militancy_modifier = -0.04
 		}
 		anti_terror_surveillance  = { # large_endowment
 			administrative_multiplier = 4
-			pension_level = 2
-			unemployment_benefit = 4
+			pension_level = 3
+			unemployment_benefit = 3
 			global_pop_consciousness_modifier = -0.04
 			global_pop_militancy_modifier = -0.06
 		}
 		the_safety_grid = { # massive_endowment
 			administrative_multiplier = 8
 			pension_level = 4
-			unemployment_benefit = 8
+			unemployment_benefit = 4
 			global_pop_consciousness_modifier = -0.05
 			global_pop_militancy_modifier = -0.08
 		}
